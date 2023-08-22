@@ -11,7 +11,7 @@ router.get("/", async (req, res) => {
       filter.premiere_year = { $gt: premiere_year }; // { genre: genre }
     }
     if (genre) {
-      filter.genre = { $gt: genre }; // { rating: { $gt: rating } }
+      filter.genre = { $in: genre.split(",") }; // { rating: { $gt: rating } }
     }
     if (rating) {
       filter.rating = { $gt: rating }; // { release_year: { $gt: release_year } }
