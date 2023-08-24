@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
+const reviewSchema = require("./review");
+
 const movieSchema = new Schema({
   title: {
     type: String,
@@ -22,6 +24,7 @@ const movieSchema = new Schema({
     type: Number,
     required: true,
   },
+  reviews: [reviewSchema],
 });
 
 const Movie = model("Movie", movieSchema);
